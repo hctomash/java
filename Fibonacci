@@ -1,0 +1,85 @@
+/**
+* Generowanie liczb ciągu Fibonacciego w podanym przedziale
+* (c) 2017 Tomasz Andrzejewski (tomasz.andrzejewski3@gmail.com)
+*/
+import java.util.Scanner;
+
+public class Fibonacci {
+	
+	public static int fib(int i) {
+		if (i<=1) return i;
+		else return fib(i-1) + fib(i-2);	
+		}
+	
+	public static <T extends Number> T getNumber(Scanner scan){
+	    T output = null;
+	    while(true)
+	    {
+	        try
+	        {    
+	            output = (T) NumberFormat.getInstance().parse(scan.next());
+	            break;
+	        } catch (ParseException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    return output;
+	}
+	
+
+//Fibonacci Sequence – Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.
+	public static void main(String[] args) {
+		System.out.println("Generowanie liczb ciągu Fibonacciego w podanym przedziale");
+		int a = 0, b = 0, j = 0;
+		Scanner reader1 = new Scanner(System.in);
+		System.out.println("Podaj pierwszą liczbę: ");
+		
+/*		boolean czyok = false;
+		while(!czyok) {
+		try {
+*/			
+		a=reader1.nextInt();
+/*
+		}
+		catch (InputMismatchException z)
+		{System.out.println("Błąd "+z.getMessage()+". Podaj pierwszą liczbę: ")};									
+		}		
+		}
+*/		
+		
+		Scanner reader2 = new Scanner(System.in);
+		System.out.println("Podaj drugą liczbę: ");
+		b=reader2.nextInt();
+		System.out.println("Pomiędzy liczbą "+a+" a liczbą "+b+" znajdują się takie liczby Fibonacciego: ");					
+		while(fib(j)<a) { //n1=10
+		j++;				
+		}
+		while(fib(j)<=b) {
+		System.out.println(fib(j));
+		j++;
+		}
+	}
+	
+//co jeśli wybiorę 12 i 12? Nic się nie wyświetla
+//co jeśli b<a, nic się nie wyświetli
+	
+	
+	
+}
+
+	
+/*	
+	
+		
+		
+		if (n2>n1) { 
+		for(int i=n1; i<n2; i++) {
+		System.out.println(n1);
+		n1=n1;
+		}
+		}
+	}
+
+}
+*/
